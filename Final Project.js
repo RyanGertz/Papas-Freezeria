@@ -58,3 +58,36 @@ function sprinkles(x1,y1, x2,x3, y2,y3){
   pop;
   
 }
+
+function drawBackground(){
+  rectMode(CENTER);
+  //noStroke();
+
+  push();
+  fill('silver')
+  rect(width/2,height-300,width,30)
+  rect(width/2,height-201,width,20)
+  pop();
+  
+  push();
+  fill('blue')
+  rect(width/2,height-248,width,75)
+  pop();
+ 
+  push();
+  fill('#CBC3E3');
+  rect(width/2,height-95.5,width,191)
+  pop();
+  
+  push();
+  fill('grey');
+  rect(width/2,20,width,5)
+  rect(width/2,height-36,width,70)
+  pop();
+  
+  for(let i=width-655;i<width-30;i = i + 50){
+  line(i,height-71,i,height+71)}
+  
+  rect(340,57,50,70)
+}
+
