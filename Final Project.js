@@ -91,3 +91,21 @@ function drawBackground(){
   rect(340,57,50,70)
 }
 
+function drawBowl(x,y,s){
+  push();
+  translate(x,y)
+  scale(s)
+  rectMode(CENTER);
+  
+  push();
+  noStroke();
+  let c = color(135,206,235,100)
+  fill(c)
+  ellipse(0,50,80,40)
+  triangle(0,10,-40,-32,40,-32)
+  rect(0,26,20,50)
+  pop();
+  
+  pop();
+}
+
