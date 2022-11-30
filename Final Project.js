@@ -12,7 +12,6 @@ function draw() {
   sprinkles(50,50, 150,250, 150,250)
 }
 
-
 function oreos(x,y){
   push();
   translate(x,y)
@@ -56,7 +55,6 @@ function sprinkles(x1,y1, x2,x3, y2,y3){
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
   pop;
-  
 }
 
 function drawBackground(){
@@ -120,5 +118,125 @@ function drawContainer(x,y,s){
   ellipse(0,0,100)
   
   
+  pop();
+}
+
+function caramelSauce(x,y,s) {
+  push();
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('#D9863D');
+    rect(0, 0, 50, 100);
+  
+    rect(0, 50, 52, 10);
+  
+    ellipse(0, -50, 52, 20);
+    triangle(-8, -50, 8, -50, 0, -75);
+  
+  fill(255);
+    ellipse (0, 0, 40);
+  
+  textSize(20);
+  fill('#D9863D')
+    text('CA', -14, 8);
+  pop();
+}
+
+function strawberrySauce(x,y,s) {
+  push();
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('#D9666F');
+    rect(0, 0, 50, 100);
+  
+    rect(0, 50, 52, 10);
+  
+    ellipse(0, -50, 52, 20);
+    triangle(-8, -50, 8, -50, 0, -75);
+  
+  fill(255);
+    ellipse (0, 0, 40);
+  
+  textSize(20);
+  fill('#D9666F')
+    text('S', -6, 8);
+  pop();
+}
+
+function cocoSauce(x,y,s) {
+  push();
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('#402722');
+    rect(0, 0, 50, 100);
+  
+    rect(0, 50, 52, 10);
+  
+    ellipse(0, -50, 52, 20);
+    triangle(-8, -50, 8, -50, 0, -75);
+  
+  fill(255);
+    ellipse (0, 0, 40);
+  
+  textSize(20);
+  fill('#402722')
+    text('CH', -14, 8);
+  pop();
+}
+
+function yummyCoco (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  angleMode(DEGREES);
+    
+  noFill();
+  stroke('#402722');
+  strokeWeight(2);
+    arc(0, 0, 50, 15, 220, 500);
+  rotate(180);
+    arc(-5, -15, 75, 15, 190, 470);
+    
+  pop();
+}
+
+function yummyStrawb (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  angleMode(DEGREES);
+    
+  noFill();
+  stroke('#D9666F');
+  strokeWeight(2);
+    arc(0, 0, 50, 15, 220, 500);
+  rotate(180);
+    arc(-5, -15, 75, 15, 190, 470);
+    
+  pop();
+}
+
+function yummyCaramel (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  angleMode(DEGREES);
+    
+  noFill();
+  stroke('#D9863D');
+  strokeWeight(2);
+    arc(0, 0, 50, 15, 220, 500);
+  rotate(180);
+    arc(-5, -15, 75, 15, 190, 470);
+    
   pop();
 }
