@@ -5,7 +5,7 @@ let sprinkleY = []
 let oreoClicked = false
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 400);
 }
 
 function draw() {
@@ -19,7 +19,29 @@ function draw() {
   cocoSauce(125, 162, 0.48);
   strawberrySauce(165, 162, 0.48);
   caramelSauce(205, 162, 0.48);
-  drawBowl(100, 330, 0.9);
+  drawBowl(400, 330, 0.9);
+  
+  hole(50, 300, 0.8);
+  
+  //chocolate ice cream
+  hole(50, 240, 0.8);
+    fill('#BF7154');
+    ellipse(50, 240, 50, 35);
+  
+  hole(125, 300, 0.8);
+  
+  //vanilla ice cream
+  hole(125, 240, 0.8);
+    fill('#F2EBDC');
+    ellipse(125, 240, 50, 35);
+  
+  hole(200, 300, 0.8);
+  
+  //strawberry ice cream
+  hole(200, 240, 0.8);
+    fill('#F2BDBD');
+    ellipse(200, 240, 50, 35);
+    fill();
   
 }
 
@@ -310,9 +332,10 @@ pop()
 
 }
 
-function hole(x,y){
+function hole(x,y,s){
   push();
-  translate(x,y)
+  translate(x,y);
+  scale(s);
     fill("#4E4443")
     ellipse(0,0,70,50)
     fill(150)
