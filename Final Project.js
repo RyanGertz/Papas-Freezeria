@@ -1,6 +1,9 @@
 let sprinkleX = []
 let sprinkleY = []
 
+
+let oreoClicked = false
+
 function setup() {
   createCanvas(400, 400);
 }
@@ -124,11 +127,21 @@ function drawContainer(x,y,s){
   noStroke();
   fill('grey')
   ellipse(0,0,100)
-  
-  
-  pop();
 }
+  
+  
+  
 
+
+function mouseClicked(){
+  if(mouseX>175 && mouseX < 225 && mouseY< 374 && mouseY> 326){
+
+   oreoClicked = !oreoClicked
+  }
+}
+ 
+     
+ 
 function caramelSauce(x,y,s) {
   push();
   translate(x,y);
@@ -294,4 +307,5 @@ push()
     ellipse(0,-30,60,40)
     ellipse(0,-45,40,30) 
 pop()
+
 }
