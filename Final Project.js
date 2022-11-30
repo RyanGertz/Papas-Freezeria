@@ -109,3 +109,16 @@ function drawBowl(x,y,s){
   pop();
 }
 
+function drawContainer(x,y,s){
+  
+  push();
+  angleMode(DEGREES);
+  translate(x,y)
+  scale(s)
+  noStroke();
+  fill('grey')
+  ellipse(0,0,100)
+  
+  
+  pop();
+}
