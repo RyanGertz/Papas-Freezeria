@@ -1,6 +1,9 @@
 let sprinkleX = []
 let sprinkleY = []
 
+
+let oreoClicked = false
+
 function setup() {
   createCanvas(400, 400);
 }
@@ -121,4 +124,16 @@ function drawContainer(x,y,s){
   
   
   pop();
+}
+
+
+
+function mouseClicked(){
+  if(mouseX>175 && mouseX < 225 && mouseY< 374 && mouseY> 326){
+
+   oreoClicked = !oreoClicked
+  }
+ 
+     
+ 
 }
