@@ -7,11 +7,17 @@ function setup() {
 
 function draw() {
   background(220);
+  drawBackground();
   
-  oreos(100,100);
-  sprinkles(50,50, 150,250, 150,250)
-  WhipCan(100,200,1)
-  WhipCream(300,200,1)
+  //oreos(100,100);
+  //sprinkles(50,50, 150,250, 150,250);
+  WhipCan(50, 162, 0.48);
+  //WhipCream(300,200,1);
+  cocoSauce(125, 162, 0.48);
+  strawberrySauce(165, 162, 0.48);
+  caramelSauce(205, 162, 0.48);
+  drawBowl(100, 330, 0.9);
+  
 }
 
 function oreos(x,y){
@@ -277,11 +283,12 @@ pop()
 
 function WhipCream(x,y,s) {
 push()
-  translate(x,y)
-  scale(s)
-  rectMode(CENTER)
-  angleMode(DEGREES)
-  noStroke()
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  noStroke();
+  fill(255);
     ellipse(0,0,100,40)
     ellipse(0,-15,80,40)
     ellipse(0,-30,60,40)
