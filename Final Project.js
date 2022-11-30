@@ -10,11 +10,18 @@ function setup() {
 
 function draw() {
   background(220);
+  drawBackground();
   
-  oreos(100,100);
-  sprinkles(50,50, 150,250, 150,250)
+  //oreos(100,100);
+  //sprinkles(50,50, 150,250, 150,250);
+  WhipCan(50, 162, 0.48);
+  //WhipCream(300,200,1);
+  cocoSauce(125, 162, 0.48);
+  strawberrySauce(165, 162, 0.48);
+  caramelSauce(205, 162, 0.48);
+  drawBowl(100, 330, 0.9);
+  
 }
-
 
 function oreos(x,y){
   push();
@@ -59,7 +66,6 @@ function sprinkles(x1,y1, x2,x3, y2,y3){
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
   pop;
-  
 }
 
 function drawBackground(){
@@ -121,11 +127,10 @@ function drawContainer(x,y,s){
   noStroke();
   fill('grey')
   ellipse(0,0,100)
-  
-  
-  pop();
 }
-
+  
+  
+  
 
 
 function mouseClicked(){
@@ -133,7 +138,174 @@ function mouseClicked(){
 
    oreoClicked = !oreoClicked
   }
+}
  
      
  
+function caramelSauce(x,y,s) {
+  push();
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('#D9863D');
+    rect(0, 0, 50, 100);
+  
+    rect(0, 50, 52, 10);
+  
+    ellipse(0, -50, 52, 20);
+    triangle(-8, -50, 8, -50, 0, -75);
+  
+  fill(255);
+    ellipse (0, 0, 40);
+  
+  textSize(20);
+  fill('#D9863D')
+    text('CA', -14, 8);
+  pop();
+}
+
+function strawberrySauce(x,y,s) {
+  push();
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('#D9666F');
+    rect(0, 0, 50, 100);
+  
+    rect(0, 50, 52, 10);
+  
+    ellipse(0, -50, 52, 20);
+    triangle(-8, -50, 8, -50, 0, -75);
+  
+  fill(255);
+    ellipse (0, 0, 40);
+  
+  textSize(20);
+  fill('#D9666F')
+    text('S', -6, 8);
+  pop();
+}
+
+function cocoSauce(x,y,s) {
+  push();
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('#402722');
+    rect(0, 0, 50, 100);
+  
+    rect(0, 50, 52, 10);
+  
+    ellipse(0, -50, 52, 20);
+    triangle(-8, -50, 8, -50, 0, -75);
+  
+  fill(255);
+    ellipse (0, 0, 40);
+  
+  textSize(20);
+  fill('#402722')
+    text('CH', -14, 8);
+  pop();
+}
+
+function yummyCoco (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  angleMode(DEGREES);
+    
+  noFill();
+  stroke('#402722');
+  strokeWeight(2);
+    arc(0, 0, 50, 15, 220, 500);
+  rotate(180);
+    arc(-5, -15, 75, 15, 190, 470);
+    
+  pop();
+}
+
+function yummyStrawb (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  angleMode(DEGREES);
+    
+  noFill();
+  stroke('#D9666F');
+  strokeWeight(2);
+    arc(0, 0, 50, 15, 220, 500);
+  rotate(180);
+    arc(-5, -15, 75, 15, 190, 470);
+    
+  pop();
+}
+
+function yummyCaramel (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  angleMode(DEGREES);
+    
+  noFill();
+  stroke('#D9863D');
+  strokeWeight(2);
+    arc(0, 0, 50, 15, 220, 500);
+  rotate(180);
+    arc(-5, -15, 75, 15, 190, 470);
+    
+  pop();
+}
+
+function WhipCan(x,y,s) { 
+push()
+  translate(x,y)
+  scale(s)
+  rectMode(CENTER)
+  angleMode(DEGREES)
+  noStroke()
+  fill(255,0,0)
+    rect(0,0,50,100)
+    ellipse(0,50,50,15)
+  stroke(1)
+    arc(0,50,50,15,0,180)
+//lid
+  noStroke()
+  fill(255)
+    ellipse(0,-50,50,20)
+  fill(255,0,0) 
+    quad(-14,-57.5,-6,-85,6,-85,14,-57.5)
+//label 
+  fill(255)
+    ellipse(0,0,25,25)
+    ellipse(10,-10,25,25)
+    ellipse(-5,14,17,17)
+    ellipse(-7,-16,23,23)
+    ellipse(-10,1,20,20)
+    ellipse(10,5,20,20)
+  fill(0)
+  textSize(12)
+  text("Whip",-12,0)
+pop()
+}
+
+function WhipCream(x,y,s) {
+push()
+  translate(x,y);
+  scale(s);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  noStroke();
+  fill(255);
+    ellipse(0,0,100,40)
+    ellipse(0,-15,80,40)
+    ellipse(0,-30,60,40)
+    ellipse(0,-45,40,30) 
+pop()
+
 }
