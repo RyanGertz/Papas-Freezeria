@@ -1,5 +1,5 @@
-let sprinkleX = []
-let sprinkleY = []
+let sprinkleX = [];
+let sprinkleY = [];
 
 
 let oreoClicked = false;
@@ -15,10 +15,6 @@ function draw() {
   background(220);
   drawBackground();
   
-  //oreos(100,100);
-  
-  //sprinkles(50,50, 150,250, 150,250);
-  
   WhipCan(50, 162, 0.48);
   
   //WhipCream(300,200,1);
@@ -28,8 +24,6 @@ function draw() {
   strawberrySauce(165, 162, 0.48);
   
   caramelSauce(205, 162, 0.48);
-  
-  hole(90, 300, 0.8);
   
   chocolateBin();
   
@@ -43,16 +37,23 @@ function draw() {
   
   updateStrawberryIceCream ();
   
-  hole(165, 300, 0.8);
+  hole(90, 300, 0.8);
+  oreos(100, 300, 0.5);
+  oreos(80, 300, 0.5);
+  oreos(90, 290, 0.5);
   
+  hole(165, 300, 0.8);
+  //sprinkles(165, 300, 165, 165, 165, 165);
+
   drawBowl(400, 330, 0.9);
  
     fill(255);
 }
 
-function oreos(x,y){
+function oreos(x,y,s){
   push();
-  translate(x,y)
+  translate(x,y);
+  scale(s);
     fill("#261D1C")
     ellipse(0,0,50)
     fill(255)
@@ -432,9 +433,9 @@ function updateVanillaIceCream () {
     vanillaScoop (400, 290, 0.7);
   }
 }
+
 function updateStrawberryIceCream () {
   if (strawberryIceCream) {
     strawberryScoop (400, 290, 0.7);
   }
 }
-  
