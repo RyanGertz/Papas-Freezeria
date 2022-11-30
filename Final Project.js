@@ -5,7 +5,7 @@ let sprinkleY = []
 let oreoClicked = false
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(600, 500);
 }
 
 function draw() {
