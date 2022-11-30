@@ -309,3 +309,13 @@ push()
 pop()
 
 }
+
+function hole(x,y){
+  push();
+  translate(x,y)
+    fill("#4E4443")
+    ellipse(0,0,70,50)
+    fill(150)
+    ellipse(0,-1.5,60,40)
+  pop();
+}
