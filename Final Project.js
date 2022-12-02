@@ -1,8 +1,10 @@
 let sprinkleX = [];
 let sprinkleY = [];
 
+
 let lessSprinkleX = [];
 let lessSprinkleY = [];
+
 
 let chocolateIceCream = false;
 let vanillaIceCream = false;
@@ -12,6 +14,7 @@ let whipClicked = false;
 let cocoSyrupClicked = false;
 let strawbSyrupClicked = false;
 let caramelSyrupClicked = false;
+
 let sprinklesClicked = false;
 
 function setup() {
@@ -64,6 +67,11 @@ function draw() {
   updateSprinkles();
   
   drawBowl(400, 330, 0.9);
+  hole(165, 300, 0.8);
+  //sprinkles(165, 300, 165, 165, 165, 165);
+
+  drawBowl(400, 330, 0.9);
+ 
     fill(255);
 }
 
