@@ -14,8 +14,29 @@ let strawbSyrupClicked = false;
 let caramelSyrupClicked = false;
 let sprinklesClicked = false;
 
+
+let icecream;
+let oreoOrder;
+let whipOrder;
+let chocolateOrder
+let strawbSauceOrder;
+let caramelOrder;
+
+
+
 function setup() {
   createCanvas(500, 400);
+  
+  
+  
+icecream = floor(random(3))
+  oreoOrder = floor(random(2))
+  whipOrder = floor(random(2))
+  chocolateOrder= floor(random(2))
+  strawbSauceOrder = floor(random(2))
+  caramelOrder = floor(random(2))
+  
+  
 }
 
 function draw() {
@@ -31,6 +52,8 @@ function draw() {
   caramelSauce(205, 162, 0.48);
   
   chocolateBin();
+  
+  drawOrder()
   
   updateChocolateIceCream();
   
@@ -543,3 +566,31 @@ function updateSprinkles(){
     lessSprinkles(400, 290, -40, 40, -30, 30, 0.3)
   }
 }
+
+
+function drawOrder(){
+  
+ 
+    //console.log(icecream)
+  
+  if (icecream == 0){
+    chocolateScoop(340,40,0.3)
+  } else if (icecream == 1){
+    vanillaScoop(340,40,0.3)
+  }else {strawberryScoop(340,40,0.3)}
+  
+  if (whipOrder == 1){
+    WhipCream(340,35,0.2)
+  }
+  
+  if (oreoOrder == 1 ){
+    oreos(345,38,0.25)
+  }
+  
+  
+  
+    drawBowl(340,55,0.4)
+    
+  
+}
+
