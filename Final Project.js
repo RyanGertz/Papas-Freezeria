@@ -1,6 +1,9 @@
 let sprinkleX = [];
 let sprinkleY = [];
 
+let lessSprinkleX = [];
+let lessSprinkleY = [];
+
 let chocolateIceCream = false;
 let vanillaIceCream = false;
 let strawberryIceCream = false;
@@ -9,6 +12,7 @@ let whipClicked = false;
 let cocoSyrupClicked = false;
 let strawbSyrupClicked = false;
 let caramelSyrupClicked = false;
+let sprinklesClicked = false;
 
 function setup() {
   createCanvas(500, 400);
@@ -53,11 +57,13 @@ function draw() {
   
   updateOreos();
   
+  
   hole(165, 300, 0.8);
-  //sprinkles(165, 300, 165, 165, 165, 165);
-
+  sprinkles(165, 300, -40, 40, -30, 30, 0.4);
+  
+  updateSprinkles();
+  
   drawBowl(400, 330, 0.9);
- 
     fill(255);
 }
 
@@ -74,37 +80,68 @@ function oreos(x,y,s){
   pop();
 }
 
-function sprinkles(x1,y1, x2,x3, y2,y3){
+function sprinkles(x1,y1, x2,x3, y2,y3, s){
   push();
   translate(x1,y1);
-  
+  scale(s)
     for(let i = 0; i<125; i++){
       sprinkleX.push(random(x2,x3))
       sprinkleY.push(random(y2,y3))
     }
   
-  
-    for(let i = 0; i<25; i++){
+    for(let i = 0; i<20; i++){
       fill("#F23D4C")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-    for(let i = 25; i<50; i++){
+    for(let i = 20; i<35; i++){
       fill("#F272B8")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-    for(let i = 50; i<75; i++){
+    for(let i = 35; i<45; i++){
       fill("#8DE8F2")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-    for(let i = 75; i<100; i++){
+    for(let i = 45; i<50; i++){
       fill("#04BF45")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-  for(let i = 100; i<125; i++){
+  for(let i = 50; i<55; i++){
       fill("#F2B705")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-  pop;
+  pop();
+}
+
+function lessSprinkles(x1,y1, x2,x3, y2,y3, s){
+  push();
+  translate(x1,y1);
+  scale(s)
+    for(let i = 0; i<125; i++){
+      lessSprinkleX.push(random(x2,x3))
+      lessSprinkleY.push(random(y2,y3))
+    }
+  
+    for(let i = 0; i<3; i++){
+      fill("#F23D4C")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+    for(let i = 3; i<6; i++){
+      fill("#F272B8")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+    for(let i = 6; i<9; i++){
+      fill("#8DE8F2")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+    for(let i = 9; i<12; i++){
+      fill("#04BF45")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+  for(let i = 12; i<15; i++){
+      fill("#F2B705")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+  pop();
 }
 
 function drawBackground(){
@@ -202,6 +239,10 @@ function mouseClicked(){
   if (mouseX > 192.5 && mouseX < 217.5 && mouseY > 137 && mouseY < 187) {
       caramelSyrupClicked = !caramelSyrupClicked
       }
+  
+  if (mouseX>140 && mouseX<190 && mouseY >285 && mouseY<315){
+      sprinklesClicked = !sprinklesClicked
+  }
 }
  
 function caramelSauce(x,y,s) {
@@ -494,5 +535,11 @@ function updateStrawbSyrup () {
 function updateCaramelSyrup () {
   if (caramelSyrupClicked) {
     yummyCaramel (400, 280, 0.5);
+  }
+}
+
+function updateSprinkles(){
+  if(sprinklesClicked){
+    lessSprinkles(400, 290, -40, 40, -30, 30, 0.3)
   }
 }
