@@ -1,31 +1,76 @@
-let sprinkleX = []
-let sprinkleY = []
+let sprinkleX = [];
+let sprinkleY = [];
 
+let lessSprinkleX = [];
+let lessSprinkleY = [];
 
-let oreoClicked = false
+let chocolateIceCream = false;
+let vanillaIceCream = false;
+let strawberryIceCream = false;
+let oreoClicked = false;
+let whipClicked = false;
+let cocoSyrupClicked = false;
+let strawbSyrupClicked = false;
+let caramelSyrupClicked = false;
+let sprinklesClicked = false;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 400);
 }
 
 function draw() {
   background(220);
   drawBackground();
   
-  //oreos(100,100);
-  //sprinkles(50,50, 150,250, 150,250);
   WhipCan(50, 162, 0.48);
-  //WhipCream(300,200,1);
-  cocoSauce(125, 162, 0.48);
-  strawberrySauce(165, 162, 0.48);
-  caramelSauce(205, 162, 0.48);
-  drawBowl(100, 330, 0.9);
   
+  cocoSauce(125, 162, 0.48);
+  
+  strawberrySauce(165, 162, 0.48);
+  
+  caramelSauce(205, 162, 0.48);
+  
+  chocolateBin();
+  
+  updateChocolateIceCream();
+  
+  vanillaBin();
+  
+  updateVanillaIceCream();
+  
+  strawberryBin();
+  
+  updateStrawberryIceCream ();
+  
+  hole(90, 300, 0.8);
+  oreos(100, 300, 0.5);
+  oreos(80, 300, 0.5);
+  oreos(90, 290, 0.5);
+  
+  updateWhip();
+  
+  updateCocoSyrup();
+  
+  updateStrawbSyrup();
+  
+  updateCaramelSyrup();
+  
+  updateOreos();
+  
+  
+  hole(165, 300, 0.8);
+  sprinkles(165, 300, -40, 40, -30, 30, 0.4);
+  
+  updateSprinkles();
+  
+  drawBowl(400, 330, 0.9);
+    fill(255);
 }
 
-function oreos(x,y){
+function oreos(x,y,s){
   push();
-  translate(x,y)
+  translate(x,y);
+  scale(s);
     fill("#261D1C")
     ellipse(0,0,50)
     fill(255)
@@ -35,37 +80,68 @@ function oreos(x,y){
   pop();
 }
 
-function sprinkles(x1,y1, x2,x3, y2,y3){
+function sprinkles(x1,y1, x2,x3, y2,y3, s){
   push();
   translate(x1,y1);
-  
+  scale(s)
     for(let i = 0; i<125; i++){
       sprinkleX.push(random(x2,x3))
       sprinkleY.push(random(y2,y3))
     }
   
-  
-    for(let i = 0; i<25; i++){
+    for(let i = 0; i<20; i++){
       fill("#F23D4C")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-    for(let i = 25; i<50; i++){
+    for(let i = 20; i<35; i++){
       fill("#F272B8")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-    for(let i = 50; i<75; i++){
+    for(let i = 35; i<45; i++){
       fill("#8DE8F2")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-    for(let i = 75; i<100; i++){
+    for(let i = 45; i<50; i++){
       fill("#04BF45")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-  for(let i = 100; i<125; i++){
+  for(let i = 50; i<55; i++){
       fill("#F2B705")
       ellipse(sprinkleX[i], sprinkleY[i], 30,5)
     }
-  pop;
+  pop();
+}
+
+function lessSprinkles(x1,y1, x2,x3, y2,y3, s){
+  push();
+  translate(x1,y1);
+  scale(s)
+    for(let i = 0; i<125; i++){
+      lessSprinkleX.push(random(x2,x3))
+      lessSprinkleY.push(random(y2,y3))
+    }
+  
+    for(let i = 0; i<3; i++){
+      fill("#F23D4C")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+    for(let i = 3; i<6; i++){
+      fill("#F272B8")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+    for(let i = 6; i<9; i++){
+      fill("#8DE8F2")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+    for(let i = 9; i<12; i++){
+      fill("#04BF45")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+  for(let i = 12; i<15; i++){
+      fill("#F2B705")
+      ellipse(sprinkleX[i], sprinkleY[i], 30,5)
+    }
+  pop();
 }
 
 function drawBackground(){
@@ -128,19 +204,46 @@ function drawContainer(x,y,s){
   fill('grey')
   ellipse(0,0,100)
 }
-  
-  
-  
-
 
 function mouseClicked(){
-  if(mouseX>175 && mouseX < 225 && mouseY< 374 && mouseY> 326){
+  //hole has x radius of 28 and y radius of 20
+  if(mouseX > 62 && mouseX < 118 && mouseY > 280 && mouseY < 320){
 
    oreoClicked = !oreoClicked
   }
+  
+  if (mouseX > 22 && mouseX < 78 && mouseY > 220 && mouseY < 260) {
+    chocolateIceCream = !chocolateIceCream;
+  }
+  
+  if (mouseX > 97 && mouseX < 153 && mouseY > 220 && mouseY < 260) {
+    vanillaIceCream = !vanillaIceCream;
+  }
+  
+  if (mouseX > 172 && mouseX < 228 && mouseY >220 && mouseY < 260) {
+    strawberryIceCream = !strawberryIceCream;
+  }
+  
+  if (mouseX > 37.5 && mouseX < 62.5 && mouseY > 137 && mouseY < 187) {
+      whipClicked = !whipClicked
+      }
+  
+  if (mouseX > 112.5 && mouseX < 137.5 && mouseY > 137 && mouseY < 187) {
+      cocoSyrupClicked = !cocoSyrupClicked
+      }
+  
+  if (mouseX > 152.5 && mouseX < 177.5 && mouseY > 137 && mouseY < 187) {
+      strawbSyrupClicked = !strawbSyrupClicked
+      }
+  
+  if (mouseX > 192.5 && mouseX < 217.5 && mouseY > 137 && mouseY < 187) {
+      caramelSyrupClicked = !caramelSyrupClicked
+      }
+  
+  if (mouseX>140 && mouseX<190 && mouseY >285 && mouseY<315){
+      sprinklesClicked = !sprinklesClicked
+  }
 }
- 
-     
  
 function caramelSauce(x,y,s) {
   push();
@@ -237,7 +340,7 @@ function yummyStrawb (x, y, s) {
   angleMode(DEGREES);
     
   noFill();
-  stroke('#D9666F');
+  stroke('#F28D95');
   strokeWeight(2);
     arc(0, 0, 50, 15, 220, 500);
   rotate(180);
@@ -310,12 +413,133 @@ pop()
 
 }
 
-function hole(x,y){
+function hole(x,y,s){
   push();
-  translate(x,y)
+  translate(x,y);
+  scale(s);
     fill("#4E4443")
     ellipse(0,0,70,50)
     fill(150)
     ellipse(0,-1.5,60,40)
   pop();
+}
+
+function chocolateBin() {
+   hole(50, 240, 0.8);
+    fill('#BF7154');
+    ellipse(50, 240, 50, 35);
+}
+
+function vanillaBin() {
+  hole(125, 240, 0.8);
+    fill('#F2EBDC');
+    ellipse(125, 240, 50, 35);
+}
+
+function strawberryBin () {
+  hole(200, 240, 0.8);
+    fill('#F2BDBD');
+    ellipse(200, 240, 50, 35);
+}
+
+function chocolateScoop (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  
+  fill('#BF7154');
+  noStroke();
+    ellipse(0, 0, 50);
+    ellipse(-15, 20, 25);
+    ellipse(-25, 12, 25);
+    ellipse(0, 22.5, 25);
+    ellipse(15, 20, 25);
+    ellipse(25, 12, 25);
+  pop();
+}
+
+function strawberryScoop (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  
+  fill('#F2BDBD');
+  noStroke();
+    ellipse(0, 0, 50);
+    ellipse(-15, 20, 25);
+    ellipse(-25, 12, 25);
+    ellipse(0, 22.5, 25);
+    ellipse(15, 20, 25);
+    ellipse(25, 12, 25);
+  pop();
+}
+
+function vanillaScoop (x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  
+  fill('#F2EBDC');
+  noStroke();
+    ellipse(0, 0, 50);
+    ellipse(-15, 20, 25);
+    ellipse(-25, 12, 25);
+    ellipse(0, 22.5, 25);
+    ellipse(15, 20, 25);
+    ellipse(25, 12, 25);
+  pop();
+}
+
+function updateChocolateIceCream () {
+  if (chocolateIceCream) {
+    chocolateScoop (400, 290, 0.7);
+  }
+}
+
+function updateVanillaIceCream () {
+  if (vanillaIceCream) {
+    vanillaScoop (400, 290, 0.7);
+  }
+}
+
+function updateStrawberryIceCream () {
+  if (strawberryIceCream) {
+    strawberryScoop (400, 290, 0.7);
+  }
+}
+
+function updateOreos () {
+  if (oreoClicked) {
+    oreos(410, 280, 0.4);
+  }
+}
+
+function updateWhip () {
+  if (whipClicked) {
+    WhipCream (400, 290, 0.35);
+  }
+}
+
+function updateCocoSyrup () {
+  if (cocoSyrupClicked) {
+    yummyCoco (400, 280, 0.5);
+  }
+}
+
+function updateStrawbSyrup () {
+  if (strawbSyrupClicked) {
+    yummyStrawb (400, 280, 0.5);
+  }
+}
+
+function updateCaramelSyrup () {
+  if (caramelSyrupClicked) {
+    yummyCaramel (400, 280, 0.5);
+  }
+}
+
+function updateSprinkles(){
+  if(sprinklesClicked){
+    lessSprinkles(400, 290, -40, 40, -30, 30, 0.3)
+  }
 }
