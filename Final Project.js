@@ -33,6 +33,7 @@ let oreoPrice = 0
 let sprinkle = 0
 let whipPrice = 0
 
+let ratingScore;
 
 
 function setup() {
@@ -46,6 +47,7 @@ icecream = floor(random(3))
   sprinklesOrder = floor(random(2))
   sauceOrder = floor(random(4))
   
+  ratingScore = floor(random(10))
 }
 
 function draw() {
@@ -673,11 +675,13 @@ function drawOrder(){
   
 }
 
+
 function scene3Background(x,y){
   push();
   
   translate(x,y)
   rectMode(CENTER);
+  angleMode(DEGREES)
   push()
   fill('black')
   rect(0,0,width,height)
@@ -692,7 +696,7 @@ function scene3Background(x,y){
   
   
     push();
-  fill('yellow')
+  fill(255,255,0,125)
   triangle(0,-200,-120,200,120,200)
   pop();
   
@@ -701,13 +705,17 @@ function scene3Background(x,y){
   fill('grey')
   rect(0,147,90,200)
   ellipse(0,80,130,90)
+  strokeWeight(2)
+  stroke(0)
+  arc(0,82,130,90,32,147)
+  noStroke()
   pop()
   
   
   receipt()
-  
+  rating()
   scene3IceCream()
-  
+    
 
   
   
@@ -823,3 +831,17 @@ function receipt(){
   text('TOTAL: $' + (iceCreamPrice+oreoPrice+syrupPrice+whipPrice ), 124,-100)
   
 }
+
+function rating() {
+  push()
+  fill(255,0,0)
+  rectMode(CENTER)
+  rect(150,150,120,50)
+  fill(255)
+  textSize(14)
+  text('Rating:' + ratingScore + "/10 stars",95,155)
+  pop()
+
+  
+}
+
