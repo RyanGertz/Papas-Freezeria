@@ -18,10 +18,8 @@ let sprinklesClicked = false;
 let icecream;
 let oreoOrder;
 let whipOrder;
-let chocolateOrder
-let strawbSauceOrder;
-let caramelOrder;
-
+let sauceOrder;
+let sprinklesOrder;
 
 
 function setup() {
@@ -32,17 +30,16 @@ function setup() {
 icecream = floor(random(3))
   oreoOrder = floor(random(2))
   whipOrder = floor(random(2))
-  chocolateOrder= floor(random(2))
-  strawbSauceOrder = floor(random(2))
-  caramelOrder = floor(random(2))
-  
+  sprinklesOrder = floor(random(2))
+  sauceOrder = floor(random(4))
   
 }
 
 function draw() {
   background(220);
   drawBackground();
-  
+  //  textSize(32);
+  // text('x: ' + (mouseX) + ',y: ' + (mouseY), 10, 30);
   WhipCan(50, 162, 0.48);
   
   cocoSauce(125, 162, 0.48);
@@ -196,7 +193,10 @@ function drawBackground(){
   for(let i=width-655;i<width-30;i = i + 50){
   line(i,height-71,i,height+71)}
   
+  push();
+  fill('black')
   rect(340,57,50,70)
+  pop();
 }
 
 function drawBowl(x,y,s){
@@ -580,14 +580,38 @@ function drawOrder(){
   }else {strawberryScoop(340,40,0.3)}
   
   if (whipOrder == 1){
-    WhipCream(340,35,0.2)
+    WhipCream(340,39,0.15)
   }
   
-  if (oreoOrder == 1 ){
+ 
+  
+  if (sauceOrder == 0){
+    
+  }else if (sauceOrder == 1){
+    yummyCoco(340,39,0.3)
+  }else if (sauceOrder== 2){
+    yummyStrawb(340,39,0.3)
+  }else if (sauceOrder == 3){
+    yummyCaramel(340,39,0.3)
+  }
+  
+   if (oreoOrder == 1 ){
     oreos(345,38,0.25)
   }
   
-  
+  if(sprinklesOrder == 1){
+    fill('red')
+    push();
+    noStroke();
+    ellipse (337,41,5,2)
+    ellipse(341,36,5,2)
+    fill('blue')  
+    ellipse(343,40,5,2)
+    pop();
+    
+    
+    
+  }
   
     drawBowl(340,55,0.4)
     
