@@ -13,6 +13,10 @@ let cocoSyrupClicked = false;
 let strawbSyrupClicked = false;
 let caramelSyrupClicked = false;
 let sprinklesClicked = false;
+let doneButton    =false;
+
+let scene2 = true;
+let scene3 = false;
 
 
 let icecream;
@@ -20,6 +24,15 @@ let oreoOrder;
 let whipOrder;
 let sauceOrder;
 let sprinklesOrder;
+
+
+
+let iceCreamPrice = 0
+let syrupPrice = 0
+let oreoPrice = 0
+let sprinkle = 0
+let whipPrice = 0
+
 
 
 function setup() {
@@ -37,9 +50,10 @@ icecream = floor(random(3))
 
 function draw() {
   background(220);
-  drawBackground();
-  //  textSize(32);
-  // text('x: ' + (mouseX) + ',y: ' + (mouseY), 10, 30);
+  if (scene2){
+    drawBackground();
+   textSize(32);
+  text('x: ' + (mouseX) + ',y: ' + (mouseY), 10, 30);
   WhipCan(50, 162, 0.48);
   
   cocoSauce(125, 162, 0.48);
@@ -85,6 +99,25 @@ function draw() {
   
   drawBowl(400, 330, 0.9);
     fill(255);
+  
+  
+  if (doneButton){
+    scene2 = false
+    scene3 = true
+    
+  }
+  }
+  
+  
+  if (scene3){
+    
+      scene3Background(width/2,height/2);
+    
+  
+        
+  }
+  
+  
 }
 
 function oreos(x,y,s){
@@ -197,6 +230,15 @@ function drawBackground(){
   fill('black')
   rect(340,57,50,70)
   pop();
+  
+ push();
+  fill('green')
+  ellipse(width/2,370,70,37)
+  fill('white')
+  textSize(20)
+  text('DONE', 222,376)
+  pop();
+  
 }
 
 function drawBowl(x,y,s){
@@ -230,6 +272,9 @@ function drawContainer(x,y,s){
 
 function mouseClicked(){
   //hole has x radius of 28 and y radius of 20
+  
+  
+  if(scene2){
   if(mouseX > 62 && mouseX < 118 && mouseY > 280 && mouseY < 320){
 
    oreoClicked = !oreoClicked
@@ -266,6 +311,15 @@ function mouseClicked(){
   if (mouseX>140 && mouseX<190 && mouseY >285 && mouseY<315){
       sprinklesClicked = !sprinklesClicked
   }
+  
+  
+  if (mouseX>216 && mouseX <285 && mouseY>350 && mouseY <389){
+      
+        doneButton = !doneButton
+      }
+  }
+  
+  
 }
  
 function caramelSauce(x,y,s) {
@@ -616,5 +670,156 @@ function drawOrder(){
     drawBowl(340,55,0.4)
     
   
+  
 }
 
+function scene3Background(x,y){
+  push();
+  
+  translate(x,y)
+  rectMode(CENTER);
+  push()
+  fill('black')
+  rect(0,0,width,height)
+  pop();
+  
+  push()
+  fill('white')
+   textSize(32);
+  text('x: ' + (mouseX) + ',y: ' + (mouseY), -250, -160);
+  pop()
+  
+  
+  
+    push();
+  fill('yellow')
+  triangle(0,-200,-120,200,120,200)
+  pop();
+  
+  push()
+  noStroke()
+  fill('grey')
+  rect(0,147,90,200)
+  ellipse(0,80,130,90)
+  pop()
+  
+  
+  receipt()
+  
+  scene3IceCream()
+  
+
+  
+  
+  
+  
+  pop();
+  
+}
+
+function scene3IceCream(){
+  if(vanillaIceCream){
+    vanillaScoop(0,-46,1)
+  }
+  if (chocolateIceCream) {
+    chocolateScoop (0, -46, 1);
+  }
+  if (strawberryIceCream){
+    strawberryScoop (0, -46, 1);
+  }
+  
+  
+  if (whipClicked) {
+    WhipCream (0, -60, 0.43);
+  }
+  
+   if (cocoSyrupClicked) {
+    yummyCoco (0, -48, 1);
+  }
+  
+  if (strawbSyrupClicked) {
+    yummyStrawb (0, -48,1);
+  }
+  
+  
+   if (caramelSyrupClicked) {
+    yummyCaramel (0, -48,1);}
+  
+  
+  if (oreoClicked){
+    oreos(20,-64,0.75)
+  }
+  
+ 
+  
+  if(sprinklesClicked){
+    lessSprinkles(0, -43, -40, 40, -30, 30, 0.5)
+  }
+  
+   
+  
+  
+  
+  
+  drawBowl(0,0,1.5)
+  
+}
+
+
+function receipt(){
+  
+  
+  
+  rect(160,-120,80,120)
+  textSize(9)
+  fill('black')
+  if(vanillaIceCream){
+    text('Ice Cream: $100', 124,-170)
+    iceCreamPrice = 100
+  }
+  if (chocolateIceCream) {
+   text('Ice Cream: $100', 124,-170)
+    iceCreamPrice = 100
+  }
+  if (strawberryIceCream){
+    text('Ice Cream: $100', 124,-170)
+    iceCreamPrice = 100
+  }
+  
+  
+  if (whipClicked) {
+    text('Whip Cream: $20',124,-158)
+    whipPrice = 20
+  }
+  
+   if (cocoSyrupClicked) {
+   text('Syrup: $25',124,-146)
+     syrupPrice = 25
+  }
+  
+  if (strawbSyrupClicked) {
+   text('Syrup: $25',124,-146)
+    syrupPrice = 25
+  }
+  
+  
+   if (caramelSyrupClicked) {
+   text('Syrup: $25',124,-146)
+     syrupPrice = 25
+   }
+  
+  
+  if (oreoClicked){
+    text('Oreo: $8',124,-134)
+    oreoPrice = 8
+  }
+  
+ 
+  
+  if(sprinklesClicked){
+    text('Sprinkles: FREE',124,-122 )
+  }
+  
+  text('TOTAL: $' + (iceCreamPrice+oreoPrice+syrupPrice+whipPrice ), 124,-100)
+  
+}
