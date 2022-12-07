@@ -13,9 +13,11 @@ let cocoSyrupClicked = false;
 let strawbSyrupClicked = false;
 let caramelSyrupClicked = false;
 let sprinklesClicked = false;
-let doneButton    =false;
+let doneButton = false;
+let clickToStart = false;
 
-let scene2 = true;
+let scene1 = true;
+let scene2 = false;
 let scene3 = false;
 
 
@@ -24,7 +26,6 @@ let oreoOrder;
 let whipOrder;
 let sauceOrder;
 let sprinklesOrder;
-
 
 
 let iceCreamPrice = 0
@@ -52,6 +53,15 @@ icecream = floor(random(3))
 
 function draw() {
   background(220);
+  
+  if (scene1) {
+    drawScene1(0,0);
+    if (clickToStart) {
+      scene1 = false;
+      scene2 = true;
+    }
+  }
+  
   if (scene2){
     drawBackground();
    textSize(32);
@@ -102,21 +112,14 @@ function draw() {
   drawBowl(400, 330, 0.9);
     fill(255);
   
-  
   if (doneButton){
     scene2 = false
     scene3 = true
-    
   }
   }
-  
   
   if (scene3){
-    
-      scene3Background(width/2,height/2);
-    
-  
-        
+      scene3Background(width/2,height/2);  
   }
   
   
@@ -275,6 +278,11 @@ function drawContainer(x,y,s){
 function mouseClicked(){
   //hole has x radius of 28 and y radius of 20
   
+  if(scene1) {
+    if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+      clickToStart = !clickToStart
+    }
+  }
   
   if(scene2){
   if(mouseX > 62 && mouseX < 118 && mouseY > 280 && mouseY < 320){
@@ -623,7 +631,6 @@ function updateSprinkles(){
   }
 }
 
-
 function drawOrder(){
   
  
@@ -674,7 +681,6 @@ function drawOrder(){
   
   
 }
-
 
 function scene3Background(x,y){
   push();
@@ -765,14 +771,9 @@ function scene3IceCream(){
   }
   
    
-  
-  
-  
-  
   drawBowl(0,0,1.5)
   
 }
-
 
 function receipt(){
   
@@ -845,3 +846,98 @@ function rating() {
   
 }
 
+function drawScene1(x, y) {
+  push();
+  translate(x, y);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  
+  fill('grey');
+  strokeWeight(3);
+    rect(250, 350, width, height/4);
+  
+  fill('yellow');
+  noStroke();
+    for(let x=0; x<width; x += 60){
+      rect(x, 350, 20, 10);
+    }
+  
+  fill('#F2D5BB');
+    rect(250, 150, width, 3*height/4);
+  
+  fill(255);
+    arc(250, 70, 150, 25, -185, 5);
+    rect(105, 200, 50, 150);
+    rect(395, 200, 50, 150);
+    rect(105, 115, 75, 20);
+    rect(395, 115, 75, 20);
+    
+  fill('#C580F2');
+    rect(250, 210, 240, 130);
+    rect(250, 110, 150, 70);
+    arc(250, 75, 150, 25, -180, 0);
+    triangle(175, 145, 175, 120, 130, 145);
+    triangle(370, 145, 325, 120, 325, 145);
+  
+  fill('lightblue');
+    quad(130, 125, 130, 145, 80, 165, 80, 145);
+    quad(130, 165, 130, 185, 80, 205, 80, 185);
+    quad(130, 205, 130, 225, 80, 245, 80, 225);
+    quad(130, 245, 130, 265, 90, 275, 80, 265);
+    triangle(80, 265, 90, 275, 80, 275);
+  
+    quad(420, 125, 420, 145, 370, 165, 370, 145);
+    quad(420, 165, 420, 185,370, 205, 370, 185);
+    quad(420, 205, 420, 225, 370, 245, 370, 225);
+    quad(420, 245, 420, 265, 380, 275, 370, 265);
+    triangle(370, 265, 380, 275, 370, 275);
+  
+  stroke(255);
+    rect(225, 230, 45, 90);
+    rect(270, 230, 45, 90);
+    rect(165, 235, 30, 80);
+    rect(335, 235, 30, 80);
+  
+  noStroke();
+  
+  fill('grey');
+    rect(235, 230, 5, 25);
+    rect(260, 230, 5, 25);
+  
+  fill('brown');
+    rect(105, 80, 3, 50);
+    rect(395, 80, 3, 50);
+  
+  fill(255);
+    triangle(396.5, 55, 396.5, 85, 426.5, 70);
+    triangle(106.5, 55, 106.5, 85, 136.5, 70);
+  
+  fill('red');
+    ellipse(250, 45, 25);
+  
+  noFill();
+  stroke('green');
+  strokeWeight(2);
+    arc(255, 40, 10, 40, 180, 290);
+  
+  fill(255);
+  stroke(0);
+  strokeWeight(1);
+    ellipse(250, 120, 110, 60);
+  noStroke();
+  
+  textSize(16);
+  fill('red');
+    text('Papas', 210, 117);
+    text('Freezeria', 223, 133);
+  
+  textSize(10);
+  fill(0);
+    text('OPEN', 150, 185);
+    text('OPEN', 320, 185);
+  
+  textSize(18);
+    text('Click Anywhere to Begin!', 150, 330);
+    
+  pop();
+}
