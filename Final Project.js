@@ -64,8 +64,8 @@ function draw() {
   
   if (scene2){
     drawBackground();
-   textSize(32);
-  text('x: ' + (mouseX) + ',y: ' + (mouseY), 10, 30);
+  //  textSize(32);
+  // text('x: ' + (mouseX) + ',y: ' + (mouseY), 10, 30);
   WhipCan(50, 162, 0.48);
   
   cocoSauce(125, 162, 0.48);
@@ -693,11 +693,11 @@ function scene3Background(x,y){
   rect(0,0,width,height)
   pop();
   
-  push()
-  fill('white')
-   textSize(32);
-  text('x: ' + (mouseX) + ',y: ' + (mouseY), -250, -160);
-  pop()
+  // push()
+  // fill('white')
+  //  textSize(32);
+  // text('x: ' + (mouseX) + ',y: ' + (mouseY), -250, -160);
+  // pop()
   
   
   
